@@ -18,10 +18,7 @@ public class L_20_ValidParentheses {
             else {
                 if(stack.isEmpty()) return false;
                 char top = stack.pop();
-                if ((c == ')' && top != '(') || (c == '}' && top != '{') || (c == ']' && top != '[')) {
-                        return false;
-                    }
-
+                if ((c == ')' && top != '(') || (c == '}' && top != '{') || (c == ']' && top != '[')) return false;
             }
         }
         return stack.isEmpty();
