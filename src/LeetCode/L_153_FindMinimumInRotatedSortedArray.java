@@ -1,16 +1,24 @@
 package LeetCode;
 
-import java.util.Arrays;
-
 public class L_153_FindMinimumInRotatedSortedArray {
     public static void main(String[] args) {
         int[] nums = {4, 5, 6, 7, 0, 1, 2};
-        System.out.println("Minimum Numbers : "+ findMin(nums));
+        System.out.println("Minimum Number : "+ findMin(nums));
     }
 
     public static int findMin(int[] nums) {
-        Arrays.sort(nums);
-        System.out.println(Arrays.toString(nums));
-        return nums[0];
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return nums[left];
     }
 }
